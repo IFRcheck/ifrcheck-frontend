@@ -1,12 +1,16 @@
 <template>
   <h1>IFR-CHECK</h1>
+  <ifr-list/>
 </template>
 
 <script>
-
+import IfrList from './components/IFR/IfrList';
 
 export default {
   name: "App",
+  components: {
+    IfrList
+  }
 };
 </script>
 
