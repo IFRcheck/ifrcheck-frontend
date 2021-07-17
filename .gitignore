@@ -5,6 +5,7 @@
 ### Vuejs ###
 # Recommended template: Node.gitignore
 
+.env
 .idea/
 node_modules/
 dist/
