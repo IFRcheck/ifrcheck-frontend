@@ -16,12 +16,16 @@ export default {
     },
     async getItems(context) {
         try {
+            let maxItems = context.rootGetters['ifr/itemCount'];
             const baseURL = process.env.VUE_APP_API_URL;
-            //let itemsList = context.rootGetters['ifr/items'];
-            //const offset = itemsList.length;
-            //const limit = process.env.VUE_APP_LIST_BLOCK_SIZE;
-            //const url = `${baseURL}getData?argument=1 LIMIT ${limit} OFFSET ${offset}`;
-            const url = `${baseURL}getData?argument=1`;
+            let itemsList = context.rootGetters['ifr/items'];
+            const offset = itemsList.length;
+            const limit = process.env.VUE_APP_LIST_BLOCK_SIZE;
+
+            if(offset > maxItems)
+                return;
+
+            const url = `${baseURL}getData?argument=1 LIMIT ${limit} OFFSET ${offset}`;
 
             let response = await axios.get(url);
             let items = response.data;

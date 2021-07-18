@@ -3,6 +3,8 @@ export default {
         state.itemCount = payload.count;
     },
     setItems(state, payload) {
-        state.items = payload.items;
+        let list = state.items;
+        let newList = list.concat(payload.items);
+        state.items = newList;
     }
 };
