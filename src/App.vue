@@ -3,7 +3,9 @@
     <div class="columns is-vcentered is-centered">
       <div class="column">
         <h1 class="is-size-1">IFR-CHECK</h1>
-        <ifr-list />
+        <div ref="ifrList">
+          <ifr-list />
+        </div>
       </div>
     </div>
   </div>
@@ -34,7 +36,6 @@ export default {
     handleScrolling() {
       const contentBottom = this.ifrList.getBoundingClientRect().bottom;
       const winInnerHeight = window.innerHeight;
-
       if (contentBottom < winInnerHeight && !this.scrollingLocked) {
         this.scrollingLocked = true;
         this.loadNewData();
