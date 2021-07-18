@@ -1,4 +1,8 @@
-//  Customize Bootstrap here
+//  Customize Bulma here
+@import "variables";
 
-// Import Bootstrap
-@import "~bootstrap";
+// Import Bulma
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "../../../node_modules/bulma-responsive-tables/bulma-responsive-tables";
+@import "~bulma";

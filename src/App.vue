@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <h1>IFR-CHECK</h1>
-    <ifr-list />
+  <div class="container is-fullhd">
+    <div class="columns is-vcentered is-centered">
+      <div class="column">
+        <h1 class="is-size-1">IFR-CHECK</h1>
+        <ifr-list />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,12 +21,4 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
