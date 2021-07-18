@@ -1,0 +1,28 @@
+$theme-dark: #293132;
+$scheme-main: $theme-dark;
+$scheme-main-bis: lighten($theme-dark, 2%);
+$scheme-main-ter: lighten($theme-dark, 4%);
+$scheme-invert: invert($theme-dark);
+$scheme-invert-bis: darken($scheme-invert, 3%);
+$scheme-invert-ter: darken($scheme-invert, 10%);
+$grey: lighten($theme-dark, 48%);
+$grey-light: lighten($grey, 10%);
+$grey-lighter: lighten($grey, 18%);
+$grey-lightest: lighten($grey, 26%);
+$grey-dark: darken($grey, 20%);
+$grey-darker: darken($grey, 45%);
+
+
+$blue: #410dab;
+$green: #0DAB76;
+$red: #AC3931;
+$white: #F2F4F3;
+
+$family-sans-serif: 'Josefin Sans',
+sans-serif;
+$text: $white;
+$text-strong: $white;
+
+$table-cell-border: 0;
+$table-cell-border-width: 0;
+$table-head-background-color: darken($scheme-main, 6%);

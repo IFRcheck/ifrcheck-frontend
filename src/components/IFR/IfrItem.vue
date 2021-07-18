@@ -1,18 +1,55 @@
 <template>
   <tr>
     <td>{{ country }}</td>
-    <td>{{ infections }}</td>
-    <td>{{ deaths }}</td>
-    <td>{{ population }}</td>
-    <td>{{ ifr }}</td>
-    <td>{{ aboveIoannidis }}</td>
-    <td>{{ cfr }}</td>
-    <td>{{ date }}</td>
+    <td>{{ formatInfections }}</td>
+    <td>{{ formatDeaths }}</td>
+    <td>{{ formatPopulation }}</td>
+    <td>{{ formatCFR }}</td>
+    <td>
+      <div :class="aboveIoannidis ? 'true' : 'false'">
+        <span class="icon"
+          ><i class="fas" :class="aboveIoannidis ? 'fa-check' : 'fa-times'"></i
+        ></span>
+      </div>
+    </td>
+    <td>{{ formatIFR }}</td>
   </tr>
 </template>
 
 <script>
 export default {
-  props: ['country', 'infections', 'deaths', 'population', 'ifr', 'aboveIoannidis', 'cfr', 'date']
-}
+  props: [
+    'country',
+    'infections',
+    'deaths',
+    'population',
+    'ifr',
+    'aboveIoannidis',
+    'cfr',
+    'date'
+  ],
+  methods: {
+    formatNumber(arg) {
+      arg = arg.toLocaleString();
+      return arg;
+    }
+  },
+  computed: {
+    formatInfections() {
+      return this.formatNumber(this.infections);
+    },
+    formatDeaths() {
+      return this.formatNumber(this.deaths);
+    },
+    formatPopulation() {
+      return this.formatNumber(this.population);
+    },
+    formatCFR() {
+      return this.formatNumber(this.cfr);
+    },
+    formatIFR() {
+      return this.formatNumber(this.ifr);
+    }
+  }
+};
 </script>

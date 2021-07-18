@@ -1,19 +1,17 @@
 <template>
-<<<<<<< HEAD
-  <div>
-    <h1>IFR-CHECK</h1>
-    <ifr-list />
-=======
-  <h1>IFR-CHECK</h1>
-  <div ref="ifrList">
-  <ifr-list/>
->>>>>>> infinite-scroll
+  <div class="container is-fullhd">
+    <div class="columns is-vcentered is-centered">
+      <div class="column">
+        <h1 class="is-size-1">IFR-CHECK</h1>
+        <ifr-list />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import IfrList from './components/IFR/IfrList';
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export default {
   name: 'App',
@@ -23,22 +21,24 @@ export default {
   data() {
     return {
       scrollingLocked: false
-    }
+    };
   },
   methods: {
     isOutOfViewport(elem) {
       var bounding = elem.getBoundingClientRect();
-      return bounding.bottom > (window.innerHeight || document.documentElement.clientHeight);
+      return (
+        bounding.bottom >
+        (window.innerHeight || document.documentElement.clientHeight)
+      );
     },
     handleScrolling() {
       const contentBottom = this.ifrList.getBoundingClientRect().bottom;
       const winInnerHeight = window.innerHeight;
 
-      if(contentBottom < winInnerHeight && !this.scrollingLocked){
+      if (contentBottom < winInnerHeight && !this.scrollingLocked) {
         this.scrollingLocked = true;
         this.loadNewData();
-      }
-      else if (contentBottom > winInnerHeight){
+      } else if (contentBottom > winInnerHeight) {
         this.scrollingLocked = false;
       }
     },
@@ -48,16 +48,16 @@ export default {
   },
   setup() {
     const ifrList = ref(null);
-    return {ifrList };
+    return { ifrList };
   },
   created() {
-    window.addEventListener("scroll", this.handleScrolling)
+    window.addEventListener('scroll', this.handleScrolling);
   },
   async mounted() {
     let isOut = this.isOutOfViewport(this.ifrList);
-    while(!isOut){
+    while (!isOut) {
       await this.loadNewData();
-      console.log('loading new data because not out of view')
+      console.log('loading new data because not out of view');
       isOut = this.isOutOfViewport(this.ifrList);
     }
   }
@@ -65,12 +65,4 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
