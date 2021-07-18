@@ -58,7 +58,6 @@ export default {
     let isOut = this.isOutOfViewport(this.ifrList);
     while (!isOut) {
       await this.loadNewData();
-      console.log('loading new data because not out of view');
       isOut = this.isOutOfViewport(this.ifrList);
     }
   }
