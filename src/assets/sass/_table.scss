@@ -7,6 +7,10 @@ table.table {
 		&.ioannidis {
 			width: 180px;
 		}
+
+		&:last-of-type {
+			width: 207px;
+		}
 	}
 
 	i.fa-check {

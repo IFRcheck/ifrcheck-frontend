@@ -1,38 +1,40 @@
 import axios from 'axios'
 
 export default {
-    async getItemCount(context) {
-        try {
-            const baseURL = process.env.VUE_APP_API_URL;
-            const url = `${baseURL}getCount`;
+	async getItemCount(context) {
+		try {
+			const baseURL = process.env.VUE_APP_API_URL;
+			const url = `${baseURL}getCount`;
 
-            let response = await axios.get(url);
-            let count = response.data[0].count
+			let response = await axios.get(url);
+			let count = response.data[0].count
 
-            context.commit('setItemCount', {count})
-        } catch(error) {
-            console.log('error', error);
-        }
-    },
-    async getItems(context) {
-        try {
-            let maxItems = context.rootGetters['ifr/itemCount'];
-            const baseURL = process.env.VUE_APP_API_URL;
-            let itemsList = context.rootGetters['ifr/items'];
-            const offset = itemsList.length;
-            const limit = process.env.VUE_APP_LIST_BLOCK_SIZE;
+			context.commit('setItemCount', { count })
+		} catch (error) {
+			console.log('error', error);
+		}
+	},
+	async getItems(context) {
+		try {
+			let maxItems = context.rootGetters['ifr/itemCount'];
+			const baseURL = process.env.VUE_APP_API_URL;
+			let itemsList = context.rootGetters['ifr/items'];
+			const offset = itemsList.length;
+			const limit = process.env.VUE_APP_LIST_BLOCK_SIZE;
 
-            if(offset > maxItems)
-                return;
+			if (offset > maxItems)
+				return;
 
-            const url = `${baseURL}getData?argument=1 LIMIT ${limit} OFFSET ${offset}`;
+			const url = `${baseURL}getData?order=infections DESC&argument=1 LIMIT ${limit} OFFSET ${offset}`;
 
-            let response = await axios.get(url);
-            let items = response.data;
-            context.commit('setItems', {items})
+			let response = await axios.get(url);
+			let items = response.data;
+			if (items !== "No entries.") {
+				context.commit('setItems', { items })
+			}
 
-        } catch(error) {
-            console.log('error', error);
-        }
-    }
+		} catch (error) {
+			console.log('error', error);
+		}
+	}
 };

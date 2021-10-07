@@ -55,8 +55,8 @@ export default {
     window.addEventListener('scroll', this.handleScrolling);
   },
   async mounted() {
-    let isOut = this.isOutOfViewport(this.ifrList);
-    console.log(isOut);
+    //let isOut = this.isOutOfViewport(this.ifrList);
+    //console.log(isOut);
     /*while (!isOut) {
       await this.loadNewData();
       isOut = this.isOutOfViewport(this.ifrList);
