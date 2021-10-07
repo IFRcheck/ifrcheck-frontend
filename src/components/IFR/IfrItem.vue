@@ -4,7 +4,7 @@
     <td>{{ formatInfections }}</td>
     <td>{{ formatDeaths }}</td>
     <td>{{ formatPopulation }}</td>
-    <td>{{ formatCFR }}</td>
+    <td>{{ cfr }}</td>
     <td>
       <div :class="aboveIoannidis ? 'true' : 'false'">
         <span class="icon"
@@ -12,7 +12,7 @@
         ></span>
       </div>
     </td>
-    <td>{{ formatIFR }}</td>
+    <td>{{ ifr }}</td>
   </tr>
 </template>
 
@@ -44,12 +44,6 @@ export default {
     formatPopulation() {
       return this.formatNumber(this.population);
     },
-    formatCFR() {
-      return this.formatNumber(this.cfr);
-    },
-    formatIFR() {
-      return this.formatNumber(this.ifr);
-    }
-  }
+  },
 };
 </script>

@@ -56,13 +56,15 @@ export default {
   },
   async mounted() {
     let isOut = this.isOutOfViewport(this.ifrList);
-    while (!isOut) {
+    console.log(isOut);
+    /*while (!isOut) {
       await this.loadNewData();
       isOut = this.isOutOfViewport(this.ifrList);
-    }
+    }*/
   }
 };
 </script>
 
-<style>
+<style lang="scss">
+@import 'src/assets/sass/variables';
 </style>

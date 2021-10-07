@@ -1,0 +1,19 @@
+table.table {
+	th {
+		&:first-of-type {
+			width: 310px;
+		}
+
+		&.ioannidis {
+			width: 180px;
+		}
+	}
+
+	i.fa-check {
+		color: $green;
+	}
+
+	i.fa-times {
+		color: $red;
+	}
+}

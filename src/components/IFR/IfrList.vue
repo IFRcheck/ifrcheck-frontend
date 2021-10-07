@@ -7,7 +7,7 @@
         <th>Deaths</th>
         <th>Population</th>
         <th>CFR</th>
-        <th>Above Ioannidis? (*)</th>
+        <th class="ioannidis">Above Ioannidis? (*)</th>
         <th>Pot. IFR (**)</th>
       </tr>
     </thead>
