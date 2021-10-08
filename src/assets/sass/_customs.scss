@@ -3,6 +3,12 @@ body {
 	padding-bottom: 3rem;
 }
 
+pre {
+	color: $scheme-main;
+	background: lighten($blue, 25%);
+	border-radius: 4px;
+}
+
 .container {
 	padding-left: 2rem;
 	padding-right: 2rem;

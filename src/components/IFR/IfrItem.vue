@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td>
-      <div class="is-hidden-tablet">Country</div>
+      <div class="is-hidden-tablet">Country / Total</div>
       <div class="value">{{ country }}</div>
     </td>
     <td>
@@ -17,27 +17,27 @@
       <div class="value">{{ formatPopulation }}</div>
     </td>
     <td>
-      <div class="is-hidden-tablet">CFR</div>
+      <div class="is-hidden-tablet"><abbr title="Case Fatality Rate">CFR</abbr></div>
       <div class="value">{{ cfr }}</div>
     </td>
     <td>
       <div class="is-hidden-tablet">
-        Above Ioannidis? 
-        <button @click="$emit('handle', 'Ioannidis')" class="button is-primary is-outlined is-small"><i class="fas fa-info"></i></button>
-      </div>
-      <div class="value" :class="aboveIoannidis ? 'true' : 'false'">
-        <span class="icon"
-          ><i class="fas" :class="aboveIoannidis ? 'fa-check' : 'fa-times'"></i
-        ></span>
-      </div>
-    </td>
-    <td>
-      <div class="is-hidden-tablet">
-        Pot. IFR
+        <abbr title="Minimum Infection Fatality Rate">Min. IFR</abbr>
         <button @click="$emit('handle', 'IFR')" class="button is-primary is-outlined is-small"><i class="fas fa-info"></i></button>
       </div>
       <div class="value">
         {{ ifr }}
+      </div>
+    </td>
+    <td>
+      <div class="is-hidden-tablet">
+        <span>Above Ioannidis?</span>
+        <button @click="$emit('handle', 'Ioannidis')" class="button is-primary is-outlined is-small"><i class="fas fa-info"></i></button>
+      </div>
+      <div class="value" :title="aboveIoannidis ? 'This country has reached Ioannidis estimate and is proving him wrong.' : 'This country has not yet reached Ioannidis estimate.'">
+        <span class="icon is-medium"
+          ><i class="fas fa-lg" :class="aboveIoannidis ? 'fa-check' : 'fa-times'"></i
+        ></span>
       </div>
     </td>
   </tr>

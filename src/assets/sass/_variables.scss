@@ -32,3 +32,13 @@ $table-striped-row-even-hover-background-color: rgba(darken($blue, 48%), 0.33);
 $table-body-background-color: rgba(darken($blue, 46%), 0.33);
 
 $modal-background-background-color: rgba(darken($blue, 60%), 0.86);
+
+$box-background-color: $white;
+$box-color: $scheme-main;
+$box-padding: 2rem;
+
+$content-blockquote-background-color: lighten($blue, 25%);
+$content-blockquote-border-left: 5px solid $blue;
+$content-blockquote-padding: 1.5rem;
+
+$content-heading-color: $blue;

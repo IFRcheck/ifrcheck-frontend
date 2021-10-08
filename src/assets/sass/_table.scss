@@ -1,16 +1,44 @@
 table.table {
 	th {
-		&:first-of-type {
-			width: 310px;
+		&.country {
+			width: 270px;
+		}
+
+		&.infections {
+			width: 141px;
+		}
+
+		.deaths {
+			width: 115px;
+		}
+
+		.population {
+			width: 156px;
+		}
+
+		&.cfr {
+			width: 131px;
 		}
 
 		&.ioannidis {
-			width: 180px;
+			width: 237px;
 		}
 
-		&:last-of-type {
-			width: 207px;
+		&.ifr {
+			width: 164px;
 		}
+	}
+
+	td {
+		&:last-of-type {
+			div.value {
+				text-align: center;
+			}
+		}
+	}
+
+	button {
+		margin-left: 0.75rem;
 	}
 
 	i.fa-check {

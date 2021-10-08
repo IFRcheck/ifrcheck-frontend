@@ -14,7 +14,7 @@ export default {
 			console.log('error', error);
 		}
 	},
-	async getItems(context) {
+	async getItems(context, order) {
 		try {
 			let maxItems = context.rootGetters['ifr/itemCount'];
 			const baseURL = process.env.VUE_APP_API_URL;
@@ -25,7 +25,7 @@ export default {
 			if (offset > maxItems)
 				return;
 
-			const url = `${baseURL}getData?order=infections DESC&argument=1 LIMIT ${limit} OFFSET ${offset}`;
+			const url = `${baseURL}getData?order=${order}&argument=1 LIMIT ${limit} OFFSET ${offset}`;
 
 			let response = await axios.get(url);
 			let items = response.data;
