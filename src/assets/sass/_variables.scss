@@ -1,4 +1,4 @@
-$theme-dark: #293132;
+$theme-dark: darken(#410dab, 30%);
 $scheme-main: $theme-dark;
 $scheme-main-bis: lighten($theme-dark, 2%);
 $scheme-main-ter: lighten($theme-dark, 4%);
@@ -11,10 +11,9 @@ $grey-lighter: lighten($grey, 18%);
 $grey-lightest: lighten($grey, 26%);
 $grey-dark: darken($grey, 20%);
 $grey-darker: darken($grey, 45%);
-$modal-background-background-color: rgba(10, 10, 10, .86);
 
-
-$blue: #410dab;
+$blue: lighten(#410dab, 30%);
+$turquoise: $blue;
 $green: #0DAB76;
 $red: #AC3931;
 $white: #F2F4F3;
@@ -26,4 +25,10 @@ $text-strong: $white;
 
 $table-cell-border: 0;
 $table-cell-border-width: 0;
-$table-head-background-color: darken($scheme-main, 6%);
+$table-head-background-color: rgba(darken($blue, 60%), 0.33);
+$table-row-hover-background-color: rgba(darken($blue, 50%), 0.33);
+$table-striped-row-even-background-color: rgba(darken($blue, 50%), 0.33);
+$table-striped-row-even-hover-background-color: rgba(darken($blue, 48%), 0.33);
+$table-body-background-color: rgba(darken($blue, 46%), 0.33);
+
+$modal-background-background-color: rgba(darken($blue, 60%), 0.86);
