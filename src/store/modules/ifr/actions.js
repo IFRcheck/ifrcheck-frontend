@@ -14,23 +14,46 @@ export default {
 			console.log('error', error);
 		}
 	},
-	async getItems(context, order) {
+	setSortBy(context, sortBy) {
+		context.commit('setSortBy', sortBy);
+	},
+	setSortOrder(context, sortOrder) {
+		context.commit('setSortOrder', sortOrder);
+	},
+	async getItems(context, initial) {
 		try {
 			let maxItems = context.rootGetters['ifr/itemCount'];
 			const baseURL = process.env.VUE_APP_API_URL;
 			let itemsList = context.rootGetters['ifr/items'];
-			const offset = itemsList.length;
+			let offset;
+			if (initial) {
+				offset = 0;
+			} else {
+				offset = itemsList.length;
+			}
 			const limit = process.env.VUE_APP_LIST_BLOCK_SIZE;
+			let sortBy = context.rootGetters['ifr/getSortBy'];
+			let sortOrder = context.rootGetters['ifr/getSortOrder'];
 
 			if (offset > maxItems)
 				return;
 
-			const url = `${baseURL}getData?order=${order}&argument=1 LIMIT ${limit} OFFSET ${offset}`;
+			const url =
+				`${baseURL}getData?order=${sortBy} ${sortOrder}&argument=country != "Total" LIMIT ${limit} OFFSET ${offset}`;
 
+			const total = `${baseURL}getData?order=${sortBy} ${sortOrder}&argument=country = "Total"`;
+
+			let totalResponse = await axios.get(total);
 			let response = await axios.get(url);
+			let totalItem = totalResponse.data;
 			let items = response.data;
 			if (items !== "No entries.") {
-				context.commit('setItems', { items })
+				if (initial) {
+					context.commit('setTotalItem', { totalItem });
+					context.commit('setInitialItems', { items });
+				} else {
+					context.commit('appendItems', { items })
+				}
 			}
 
 		} catch (error) {

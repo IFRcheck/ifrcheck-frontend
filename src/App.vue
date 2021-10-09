@@ -44,7 +44,7 @@ export default {
       }
     },
     async loadNewData() {
-      await this.$store.dispatch('ifr/getItems', 'infections DESC');
+      await this.$store.dispatch('ifr/getItems', false);
     }
   },
   setup() {

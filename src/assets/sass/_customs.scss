@@ -9,6 +9,12 @@ pre {
 	border-radius: 4px;
 }
 
+option {
+	&:disabled {
+		color: $blue;
+	}
+}
+
 .container {
 	padding-left: 2rem;
 	padding-right: 2rem;

@@ -1,5 +1,7 @@
 table.table {
 	th {
+		cursor: pointer;
+
 		&.country {
 			width: 270px;
 		}
@@ -20,12 +22,24 @@ table.table {
 			width: 131px;
 		}
 
-		&.ioannidis {
+		&.aboveIoannidis {
 			width: 237px;
 		}
 
 		&.ifr {
 			width: 164px;
+		}
+
+		>span:not(.active) {
+			padding-right: 1.5rem;
+
+			span.icon {
+				display: none;
+			}
+		}
+
+		span.icon {
+			margin-left: 0.5rem
 		}
 	}
 

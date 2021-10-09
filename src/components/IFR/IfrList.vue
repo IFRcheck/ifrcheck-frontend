@@ -5,20 +5,21 @@
         <div class="field has-addons">
           <div class="control is-expanded">
             <span class="select is-fullwidth">
-              <select>
-                <option>Country</option>
-                <option selected>Infections</option>
-                <option>Deaths</option>
-                <option>Population</option>
-                <option>CFR</option>
-                <option>Above Ioannidis?</option>
-                <option>IFR</option>
+              <select id="selectbox" v-model="selected" @change="sort(this.selected, this.orderBy)">
+                <option disabled value="">Please pick one to sort by</option>
+                <option value="country">Country</option>
+                <option value="infections">Infections</option>
+                <option value="deaths">Deaths</option>
+                <option value="population">Population</option>
+                <option value="cfr">CFR</option>
+                <option value="aboveIoannidis">Above Ioannidis?</option>
+                <option value="ifr">IFR</option>
               </select>
             </span>
           </div>
           <div class="control">
-            <button class="button is-primary">
-              <span class="icon is-small"><i class="fas fa-arrow-up"></i></span>
+            <button @click="sort(this.selected)" class="button is-primary">
+              <span class="icon is-small"><i class="fas" :class="this.order ? 'fa-arrow-up' : 'fa-arrow-down'"></i></span>
             </button>
           </div>
         </div>
@@ -27,19 +28,64 @@
         <table class="table is-fullwidth is-hoverable is-striped">
           <thead>
             <tr>
-              <th class="country" @click="sort('country')">Country / Total</th>
-              <th class="infections">Infections</th>
-              <th class="deaths">Deaths</th>
-              <th class="population">Population</th>
-              <th class="cfr"><abbr title="Case Fatality Rate">CFR</abbr></th>
+              <th class="country">
+                <span @click="sort('country')" :class="selected === 'country' ? 'active' : ''">
+                  <span>Country / Total</span>
+                  <span class="icon is-small">
+                    <i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
+                  </span>
+                </span>
+              </th>
+              <th class="infections">
+                <span @click="sort('infections')" :class="selected === 'infections' ? 'active' : ''">
+                  <span>Infections</span>
+                  <span class="icon is-small">
+                    <i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
+                  </span>
+                </span>
+              </th>
+              <th class="deaths">
+                <span @click="sort('deaths')" :class="selected === 'deaths' ? 'active' : ''">
+                  <span>Deaths</span>
+                  <span class="icon is-small">
+                    <i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
+                  </span>
+                </span>
+              </th>
+              <th class="population">
+                <span @click="sort('population')" :class="selected === 'population' ? 'active' : ''">
+                  <span>Population</span>
+                  <span class="icon is-small">
+                    <i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
+                  </span>
+                </span>
+              </th>
+              <th class="cfr">
+                <span @click="sort('cfr')" :class="selected === 'cfr' ? 'active' : ''">
+                  <abbr title="Case Fatality Rate">CFR</abbr>
+                  <span class="icon is-small">
+                    <i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
+                  </span>
+                </span>
+              </th>
               <th class="ifr">
-                <abbr title="Minimum Infection Fatality Rate">Min. IFR</abbr>
+                <span @click="sort('ifr')" :class="selected === 'ifr' ? 'active' : ''">
+                  <abbr title="Minimum Infection Fatality Rate">Min. IFR</abbr>
+                  <span class="icon is-small">
+                    <i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
+                  </span>
+                </span>
                 <button @click="openModal('IFR')" class="button is-primary is-outlined is-small">
                   <i class="fas fa-info"></i>
                 </button>
               </th>
-              <th class="ioannidis">
-                <span>Above Ioannidis?</span>
+              <th class="aboveIoannidis">
+                <span @click="sort('aboveIoannidis')" :class="selected === 'aboveIoannidis' ? 'active' : ''">
+                  <span>Above Ioannidis?</span>
+                  <span class="icon is-small">
+                    <i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
+                  </span>
+                </span>
                 <button @click="openModal('Ioannidis')" class="button is-primary is-outlined is-small">
                   <i class="fas fa-info"></i>
                 </button>
@@ -97,7 +143,9 @@
 			return {
 				isActive: false,
         mode: "",
-        sortBy: "DESC"
+        orderBy: "DESC",
+        order: false,
+        selected: this.$store.getters['ifr/getSortBy']
 			};
 		},
 		components: {
@@ -107,7 +155,7 @@
 		methods: {
 			async loadData() {
 				await this.$store.dispatch('ifr/getItemCount');
-				await this.$store.dispatch('ifr/getItems', 'infections DESC');
+				await this.$store.dispatch('ifr/getItems', true);
 			},
 			openModal(mode) {
 				this.isActive = !this.isActive;
@@ -118,13 +166,35 @@
         }
         document.querySelector("html").classList.toggle("is-clipped");
       },
-      async sort(order) {
-        if(this.sortBy === "DESC") {
-          this.sortBy = "ASC";
+      async sort(sort, ordering) {
+        if(ordering) {
+          this.orderBy = ordering;
+          if(this.orderBy === "DESC") {
+            this.order = false;
+          } else {
+            this.order = true;
+          }
+          this.selected = sort;
+          this.$store.dispatch('ifr/setSortBy', sort);
+          this.$store.dispatch('ifr/setSortOrder', this.orderBy);
+          this.$store.dispatch('ifr/getItems', true);
         } else {
-          this.sortBy = "DESC";
+          if(this.orderBy === "DESC") {
+            this.orderBy = "ASC";
+            this.order = true;
+            this.selected = sort;
+            this.$store.dispatch('ifr/setSortBy', sort);
+            this.$store.dispatch('ifr/setSortOrder', this.orderBy);
+            this.$store.dispatch('ifr/getItems', true);
+          } else {
+            this.orderBy = "DESC";
+            this.order = false;
+            this.selected = sort;
+            this.$store.dispatch('ifr/setSortBy', sort);
+            this.$store.dispatch('ifr/setSortOrder', this.orderBy);
+            this.$store.dispatch('ifr/getItems', true);
+          }
         }
-        await this.$store.dispatch('ifr/getItems', order + ' ' + this.sortBy);
       }
 		},
 		computed: {
