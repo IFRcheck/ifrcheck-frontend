@@ -51,6 +51,10 @@ option {
 @media(max-width: 768px) {
 	.b-table .table-wrapper tbody {
 		background: transparent;
+
+		td {
+			height: 42px;
+		}
 	}
 
 	.b-table .table-wrapper.has-mobile-cards tr:not(:last-child) {

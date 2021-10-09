@@ -5,7 +5,7 @@
       <div class="value">{{ country }}</div>
     </td>
     <td>
-      <div class="is-hidden-tablet">Infetions</div>
+      <div class="is-hidden-tablet">Infections</div>
       <div class="value">{{ formatInfections }}</div>
     </td>
     <td>
@@ -35,8 +35,11 @@
         <button @click="$emit('handle', 'Ioannidis')" class="button is-primary is-outlined is-small"><i class="fas fa-info"></i></button>
       </div>
       <div class="value" :title="aboveIoannidis ? 'This country has reached Ioannidis estimate and is proving him wrong.' : 'This country has not yet reached Ioannidis estimate.'">
-        <span class="icon is-medium"
+        <span class="icon is-hidden-touch is-medium"
           ><i class="fas fa-lg" :class="aboveIoannidis ? 'fa-check' : 'fa-times'"></i
+        ></span>
+        <span class="icon is-hidden-desktop"
+          ><i class="fas" :class="aboveIoannidis ? 'fa-check' : 'fa-times'"></i
         ></span>
       </div>
     </td>
