@@ -6,7 +6,7 @@
 				<slot></slot>
 			</div>
 		</div>
-		<button name="Close-Button" class="modal-close is-large" @click="$emit('handle', '')" aria-label="close"></button>
+		<button aria-label="close-Button" class="modal-close is-large" @click="$emit('handle', '')"></button>
 	</div>
 </template>
 

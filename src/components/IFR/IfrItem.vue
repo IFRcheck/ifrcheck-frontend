@@ -23,7 +23,7 @@
     <td>
       <div class="is-hidden-tablet">
         <abbr title="Minimum Infection Fatality Rate">Min. IFR</abbr>
-        <button @click="$emit('handle', 'IFR')" class="button is-primary is-outlined is-small"><i class="fas fa-info"></i></button>
+        <button aria-label="ifrExplanation" @click="$emit('handle', 'IFR')" class="button is-primary is-outlined is-small"><i class="fas fa-info"></i></button>
       </div>
       <div class="value">
         {{ ifr }}
@@ -32,7 +32,7 @@
     <td>
       <div class="is-hidden-tablet">
         <span>Above Ioannidis?</span>
-        <button @click="$emit('handle', 'Ioannidis')" class="button is-primary is-outlined is-small"><i class="fas fa-info"></i></button>
+        <button aria-label="ioannidisExplanation" @click="$emit('handle', 'Ioannidis')" class="button is-primary is-outlined is-small"><i class="fas fa-info"></i></button>
       </div>
       <div class="value" :title="aboveIoannidis ? 'This country has reached Ioannidis estimate and is proving him wrong.' : 'This country has not yet reached Ioannidis estimate.'">
         <span class="icon is-hidden-touch is-medium"
