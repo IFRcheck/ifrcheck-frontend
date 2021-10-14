@@ -3,22 +3,23 @@
     <div class="columns is-vcentered is-centered">
       <div class="column">
         <h1 class="is-size-1 is-size-3-touch has-text-primary">IFR-CHECK</h1>
-        <div ref="ifrList">
+        <!-- <div ref="ifrList">
           <ifr-list />
-        </div>
+        </div> -->
+        <router-view></router-view>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import IfrList from './components/IFR/IfrList';
+//import IfrList from './components/IFR/IfrList';
 import { ref } from 'vue';
 
 export default {
   name: 'App',
   components: {
-    IfrList
+    //IfrList
   },
   data() {
     return {
