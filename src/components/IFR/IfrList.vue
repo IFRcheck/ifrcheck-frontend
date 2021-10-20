@@ -125,10 +125,10 @@
       </div>
       <div v-else-if="mode === 'Ioannidis'" class="content" :class="{mode}">
         <h3 class="is-size-3">What does this even mean?</h3>
-        <p>I have to be very cautious now, because I don't want to offend anyone speficially. But some people came up with studies<sup><a href="https://doi.org/10.1101/2020.05.13.20101253" target="_blank">[1]</a><a href="https://doi.org/10.1111/eci.13554" target="_blank">[2]</a></sup> from <a href="https://en.wikipedia.org/wiki/John_Ioannidis" target="_blank">John P. Ioannidis</a> where Ioannidis came to the conclusion that the median and/or average <abbr title="Infection Fatality Rate">IFR</abbr> of COVID-19 would be around 0.04% and 0.15%.</p>
+        <p>I have to be very cautious now, because I don't want to offend anyone specifically. But some people came up with studies<sup><a href="https://doi.org/10.1101/2020.05.13.20101253" target="_blank">[1]</a><a href="https://doi.org/10.1111/eci.13554" target="_blank">[2]</a></sup> from <a href="https://en.wikipedia.org/wiki/John_Ioannidis" target="_blank">John P. Ioannidis</a> where Ioannidis came to the conclusion that the median and/or average <abbr title="Infection Fatality Rate">IFR</abbr> of COVID-19 would be around 0.04% and 0.15%.</p>
         <h4 class="is-size-4">And why is this important?</h4>
         <p>Well... some people tried to play down the dangerousness of COVID-19 with this studies and I wanted to show which countries as a whole are already above that threshhold if you assume that the whole population was already infected (which is mostly not the case).</p>
-        <p>So everywhere where you see a green checkmark (<span class="icon is-small has-text-success"><i class="fas fa-check"></i></span>) the <abbr title="Infection Fatality Rate">IFR</abbr> is above 0.15. Everywhere where you see a cross (<span class="icon is-small has-text-danger"><i class="fas fa-times"></i></span>) the treshhold is not yet reached.</p>
+        <p>So everywhere where you see a green checkmark (<span class="icon is-small has-text-success"><i class="fas fa-check"></i></span>) the minimum <abbr title="Infection Fatality Rate">IFR</abbr> is above 0.15. Everywhere where you see a cross (<span class="icon is-small has-text-danger"><i class="fas fa-times"></i></span>) the treshhold is not yet reached.</p>
       </div>
     </click-modal>
   </div>
