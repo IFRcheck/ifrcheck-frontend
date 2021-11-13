@@ -114,21 +114,21 @@
     <click-modal :isActive="isActive" @handle="openModal">
       <div v-if="mode === 'IFR'" class="content" :class="{mode}">
         <h3 class="is-size-3">What is the minimum IFR?</h3>
-        <p>Well, that is a good question, and I will try my best to explain it as easy as possible.</p>
-        <p>The infection fatality rate is the possibility to die from an infection. This number is likely lower than the case fatality rate (CFR) which only includes reported cases (tested).</p>
-        <p>But the estimated number of unreported cases is most of the times way higher than the reported cases.</p>
+        <p>That is a good question and I will try my best to explain it as easily as possible.</p>
+        <p>The infection fatality rate (IFR) is the proportion of individuals who die from an infection. This coefficient is likely to be lower than the case fatality rate (CFR) which only includes reported cases (tested).</p>
+        <p>It can be assumed, however, that the estimated number of unreported cases is significantly higher than the reported cases.</p>
         <h4 class="is-size-4">But what is the minimum IFR now?</h4>
-        <p>Yeah, let me explain: I came up with a thought experiment.</p> 
-        <blockquote>What would be the IFR if all of our residents were already infected?</blockquote>
-        <p>And yeah.. thats simply it. I just assume every human being has been infected.</p>
+        <p>Let me explain briefly. I came up with a thought experiment.</p> 
+        <blockquote>What would be the IFR if all of a country's residents were already infected?</blockquote>
+        <p>In this scenario I just assume that every human being has been infected.</p>
         <pre>minimum IFR = total Deaths / (total Population / 100)</pre>
       </div>
       <div v-else-if="mode === 'Ioannidis'" class="content" :class="{mode}">
-        <h3 class="is-size-3">What does this even mean?</h3>
-        <p>I have to be very cautious now, because I don't want to offend anyone specifically. But some people came up with studies<sup><a href="https://doi.org/10.1101/2020.05.13.20101253" target="_blank">[1]</a><a href="https://doi.org/10.1111/eci.13554" target="_blank">[2]</a></sup> from <a href="https://en.wikipedia.org/wiki/John_Ioannidis" target="_blank">John P. Ioannidis</a> where Ioannidis came to the conclusion that the median and/or average <abbr title="Infection Fatality Rate">IFR</abbr> of COVID-19 would be around 0.04% and 0.15%.</p>
+        <h3 class="is-size-3">What does this mean?</h3>
+        <p>I have to be very cautious now, because I don't want to offend anyone specifically. However some people came up with studies<sup><a href="https://doi.org/10.1101/2020.05.13.20101253" target="_blank">[1]</a><a href="https://doi.org/10.1111/eci.13554" target="_blank">[2]</a></sup> by <a href="https://en.wikipedia.org/wiki/John_Ioannidis" target="_blank">John P. Ioannidis</a> in which he comes to the conclusion that the median and/or average <abbr title="Infection Fatality Rate">IFR</abbr> of COVID-19 is around 0.04% and 0.15%.</p>
         <h4 class="is-size-4">And why is this important?</h4>
-        <p>Well... some people tried to play down the dangerousness of COVID-19 with this studies and I wanted to show which countries as a whole are already above that threshhold if you assume that the whole population was already infected (which is mostly not the case).</p>
-        <p>So everywhere where you see a green checkmark (<span class="icon is-small has-text-success"><i class="fas fa-check"></i></span>) the minimum <abbr title="Infection Fatality Rate">IFR</abbr> is above 0.15. Everywhere where you see a cross (<span class="icon is-small has-text-danger"><i class="fas fa-times"></i></span>) the treshhold is not yet reached.</p>
+        <p>Some people are trying to play down the dangerousness and severity of COVID-19 using these studies and I'd like to point out which countries would already have surpassed this threshhold assuming that the whole population has already been infected (which is momentarily not the case).</p>
+        <p>The green checkmark (<span class="icon is-small has-text-success"><i class="fas fa-check"></i></span>) indicates that the minimum <abbr title="Infection Fatality Rate">IFR</abbr> lies above 0.15. The red cross (<span class="icon is-small has-text-danger"><i class="fas fa-times"></i></span>) indicates that the treshhold has not been reached yet.</p>
       </div>
     </click-modal>
   </div>
