@@ -8,6 +8,11 @@
         </div>
       </div>
     </div>
+    <div ref="toTop" id="toTop" :class="toTopClass">
+      <a id="toTopAnchor" @click=toTopClick()>
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -22,7 +27,8 @@ export default {
   },
   data() {
     return {
-      scrollingLocked: false
+      scrollingLocked: false,
+      toTopClass: 'hide'
     };
   },
   methods: {
@@ -33,7 +39,23 @@ export default {
         (window.innerHeight || document.documentElement.clientHeight)
       );
     },
+    showScrollTop() {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 800) {
+        this.toTopClass = 'show';
+      } else if (currentScroll < 800) {
+        this.toTopClass = 'hide';
+      }
+    },
+    toTopClick() {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    },
     handleScrolling() {
+      this.showScrollTop();
       const contentBottom = this.ifrList.getBoundingClientRect().bottom;
       const winInnerHeight = window.innerHeight;
       if (contentBottom < winInnerHeight && !this.scrollingLocked) {
