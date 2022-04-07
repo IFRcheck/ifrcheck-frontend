@@ -10,6 +10,7 @@
 		</div>
 		<div ref="toTop" id="toTop" :class="toTopClass">
 			<a href="#Top" name="toTopAnchor" id="toTopAnchor" @click="toTopClick()">
+				<span class="is-sr-only">Link to Scroll to Top</span>
 				<i class="fas fa-arrow-up"></i>
 			</a>
 		</div>
