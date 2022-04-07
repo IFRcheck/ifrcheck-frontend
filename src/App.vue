@@ -38,9 +38,9 @@
 			},
 			showScrollTop() {
 				const currentScroll = window.scrollY;
-				if (currentScroll > 800) {
+				if (currentScroll > 200) {
 					this.toTopClass = 'show';
-				} else if (currentScroll < 800) {
+				} else if (currentScroll < 200) {
 					this.toTopClass = 'hide';
 				}
 			},
