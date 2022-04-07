@@ -9,7 +9,7 @@
 			</div>
 		</div>
 		<div ref="toTop" id="toTop" :class="toTopClass">
-			<a id="toTopAnchor" @click="toTopClick()">
+			<a href="javascript:void(0)" id="toTopAnchor" @click="toTopClick()">
 				<i class="fas fa-arrow-up"></i>
 			</a>
 		</div>
