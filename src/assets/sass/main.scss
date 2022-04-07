@@ -1,12 +1,12 @@
 //  Customize Bulma here
-@import "variables"; // To Overwrite custom stuff
+@import 'variables'; // To Overwrite custom stuff
 
 // Imports start
-@import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import "~bulma-responsive-tables/bulma-responsive-tables";
-@import "~bulma";
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import '~bulma-responsive-tables/bulma-responsive-tables';
+@import '~bulma';
 // Imports end
 
 // Own custom CSS
-@import "table";
-@import "customs";
+@import 'table';
+@import 'customs';

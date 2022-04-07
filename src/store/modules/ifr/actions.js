@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
 	async getItemCount(context) {
@@ -7,9 +7,9 @@ export default {
 			const url = `${baseURL}getCount`;
 
 			let response = await axios.get(url);
-			let count = response.data[0].count
+			let count = response.data[0].count;
 
-			context.commit('setItemCount', { count })
+			context.commit('setItemCount', { count });
 		} catch (error) {
 			console.log('error', error);
 		}
@@ -35,11 +35,9 @@ export default {
 			let sortBy = context.rootGetters['ifr/getSortBy'];
 			let sortOrder = context.rootGetters['ifr/getSortOrder'];
 
-			if (offset > maxItems)
-				return;
+			if (offset > maxItems) return;
 
-			const url =
-				`${baseURL}getData?order=${sortBy} ${sortOrder}&argument=country != "Total" LIMIT ${limit} OFFSET ${offset}`;
+			const url = `${baseURL}getData?order=${sortBy} ${sortOrder}&argument=country != "Total" LIMIT ${limit} OFFSET ${offset}`;
 
 			const total = `${baseURL}getData?order=${sortBy} ${sortOrder}&argument=country = "Total"`;
 
@@ -47,17 +45,16 @@ export default {
 			let response = await axios.get(url);
 			let totalItem = totalResponse.data;
 			let items = response.data;
-			if (items !== "No entries.") {
+			if (items !== 'No entries.') {
 				if (initial) {
 					context.commit('setTotalItem', { totalItem });
 					context.commit('setInitialItems', { items });
 				} else {
-					context.commit('appendItems', { items })
+					context.commit('appendItems', { items });
 				}
 			}
-
 		} catch (error) {
 			console.log('error', error);
 		}
-	}
+	},
 };

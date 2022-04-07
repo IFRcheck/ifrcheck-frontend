@@ -1,7 +1,8 @@
 html {
 	scroll-behavior: smooth;
 }
-html, body {
+html,
+body {
 	height: 100%;
 	min-height: 100%;
 }
@@ -74,7 +75,8 @@ option {
 		height: 60px;
 		cursor: pointer;
 		transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s;
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			color: $white;
 			border-color: $white;
 		}
@@ -90,7 +92,7 @@ option {
 	}
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
 	.b-table .table-wrapper tbody {
 		background: transparent;
 
@@ -104,7 +106,7 @@ option {
 	}
 
 	.table.is-striped tbody tr:not(.is-selected),
-	.b-table .table-wrapper.has-mobile-cards tr:not([class*=is-]) {
+	.b-table .table-wrapper.has-mobile-cards tr:not([class*='is-']) {
 		background: $table-body-background-color;
 		border-radius: 4px;
 		border: 1px solid lighten($blue, 10%);
@@ -121,7 +123,7 @@ option {
 	}
 
 	.b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td:before {
-		content: "";
+		content: '';
 		display: none;
 	}
 }

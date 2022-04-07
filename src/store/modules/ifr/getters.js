@@ -15,5 +15,5 @@ export default {
 	},
 	getSortOrder(state) {
 		return state.sortOrder;
-	}
+	},
 };

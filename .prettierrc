@@ -1,6 +1,19 @@
 {
-  "singleQuote": true,
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "css",
+  "insertPragma": false,
+  "jsxSingleQuote": false,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "requirePragma": false,
   "semi": true,
-  "trailingComma": "none",
-  "tabWidth": 2
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": true,
+  "vueIndentScriptAndStyle": true,
+  "printWidth": 1920
 }

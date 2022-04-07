@@ -30,7 +30,7 @@ table.table {
 			width: 164px;
 		}
 
-		>span:not(.active) {
+		> span:not(.active) {
 			padding-right: 1.5rem;
 
 			span.icon {
@@ -39,7 +39,7 @@ table.table {
 		}
 
 		span.icon {
-			margin-left: 0.5rem
+			margin-left: 0.5rem;
 		}
 	}
 

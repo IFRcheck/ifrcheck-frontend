@@ -11,12 +11,12 @@
 </template>
 
 <script>
-export default {
-  props: {
-		isActive: {
-			default: false,
-			type: Boolean
+	export default {
+		props: {
+			isActive: {
+				default: false,
+				type: Boolean,
+			},
 		},
-	},
-}
+	};
 </script>

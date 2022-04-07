@@ -8,12 +8,12 @@ export default {
 		return {
 			itemCount: 0,
 			items: [],
-			sortBy: "infections",
-			sortOrder: "DESC",
-			totalItem: []
+			sortBy: 'infections',
+			sortOrder: 'DESC',
+			totalItem: [],
 		};
 	},
 	mutations,
 	actions,
-	getters
+	getters,
 };

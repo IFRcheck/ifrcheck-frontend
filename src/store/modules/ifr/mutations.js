@@ -6,7 +6,7 @@ export default {
 		state.totalItem = payload.totalItem;
 	},
 	setInitialItems(state, payload) {
-		state.items = payload.items
+		state.items = payload.items;
 	},
 	appendItems(state, payload) {
 		let list = state.items;
@@ -18,5 +18,5 @@ export default {
 	},
 	setSortOrder(state, payload) {
 		state.sortOrder = payload;
-	}
+	},
 };
