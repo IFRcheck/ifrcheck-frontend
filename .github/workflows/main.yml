@@ -1,4 +1,7 @@
-on: tag
+on:
+  push:
+    tags:        
+      - '**'
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
