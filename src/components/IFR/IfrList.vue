@@ -4,7 +4,7 @@
 			<div class="field has-addons">
 				<div class="control is-expanded">
 					<span class="select is-fullwidth">
-						<select id="selectbox" v-model="selected" @change="sort(this.selected, this.orderBy)">
+						<select aria-label="Please pick one to sort by - default is Infections descending" id="selectbox" v-model="selected" @change="sort(this.selected, this.orderBy)">
 							<option disabled value="">Please pick one to sort by</option>
 							<option value="country">Country</option>
 							<option value="infections">Infections</option>
@@ -17,7 +17,7 @@
 					</span>
 				</div>
 				<div class="control">
-					<button aria-label="sort-button" @click="sort(this.selected)" class="button is-primary">
+					<button aria-label="Sort Button" @click="sort(this.selected)" class="button is-primary">
 						<span class="icon is-small"><i class="fas" :class="this.order ? 'fa-arrow-up' : 'fa-arrow-down'"></i></span>
 					</button>
 				</div>
@@ -74,7 +74,7 @@
 									<i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
 								</span>
 							</span>
-							<button aria-label="ifrExplanation" @click="openModal('IFR')" class="button is-primary is-outlined is-small">
+							<button aria-label="Explanation for the minimum IFR - a Modal-Window will Pop Up" @click="openModal('IFR')" class="button is-primary is-outlined is-small">
 								<i class="fas fa-info"></i>
 							</button>
 						</th>
@@ -85,7 +85,7 @@
 									<i class="fas" :class="this.order ? 'fa-long-arrow-alt-up' : 'fa-long-arrow-alt-down'"></i>
 								</span>
 							</span>
-							<button aria-label="ioannidisExplanation" @click="openModal('Ioannidis')" class="button is-primary is-outlined is-small">
+							<button aria-label="Explanation for the Above Ioannidis column - a Modal Window will Pop Up" @click="openModal('Ioannidis')" class="button is-primary is-outlined is-small">
 								<i class="fas fa-info"></i>
 							</button>
 						</th>

@@ -2,10 +2,14 @@
 	<div class="container is-fullhd">
 		<div class="columns is-vcentered is-centered">
 			<div class="column">
-				<h1 class="is-size-1 is-size-3-touch has-text-primary">IFR-CHECK</h1>
-				<div ref="ifrList">
-					<ifr-list />
-				</div>
+				<header>
+					<h1 class="is-size-1 is-size-3-touch has-text-primary">IFR-CHECK</h1>
+				</header>
+				<main>
+					<div ref="ifrList">
+						<ifr-list />
+					</div>
+				</main>
 			</div>
 		</div>
 		<div ref="toTop" id="toTop" :class="toTopClass">
